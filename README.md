@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
@@ -19,7 +20,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        // Criar um TextView programaticamente
+        TextView textView = new TextView(this);
+        textView.setText("Notificação Exemplo");
+        textView.setTextSize(18);
+        setContentView(textView);  // Usa o TextView diretamente como layout
 
         // Registra o BroadcastReceiver
         registerReceiver(new NotificationReceiver(), new android.content.IntentFilter("com.example.MY_ACTION"));
